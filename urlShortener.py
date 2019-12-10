@@ -1,5 +1,5 @@
 import string
-from random import random
+import random
 from datetime import date
 from flask import Flask, request, escape, json, jsonify, redirect, url_for
 

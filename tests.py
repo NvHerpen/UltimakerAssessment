@@ -1,12 +1,12 @@
 import unittest
-from urlShortener import shortenUrl
-from unittest import mock
+import urlShortener
+from unittest.mock import patch
 
 class MyTestCase(unittest.TestCase):
-    @mock.patch('urlShortener.random')
-    def test_shorten(self, mocked_random):
-        shortenUrl("abc")
-        mocked_random.choices.assert_called_once()
+    def test_shorten(self):
+        with patch('random.random.choices') as mock_random:
+            mock_random.return_value = 'test'
+            print(urlShortener.shortenUrl('TEST'))
 
 if __name__ == '__main__':
     unittest.main()
