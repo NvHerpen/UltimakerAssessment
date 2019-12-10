@@ -1,6 +1,6 @@
 import string
 import random
-from flask import Flask, request, escape, json
+from flask import Flask, request, escape, json, jsonify
 app = Flask(__name__)
 
 @app.route('/full_url/<path:full_url>')
@@ -12,19 +12,27 @@ def echoPath(full_url):
 @app.route("/", methods=["POST"])
 def curlPost():
     if request.method == "POST":
-        data = request.get_json(force=True)
+        full_url = request.get_json(force=True)['full_url']
 
         # Open file for reading
         with open('json.json', 'r') as f:
             dict = json.load(f)
 
         for entry in dict:
-            if entry['full_url'] == data['full_url']:
+
+            # Check for duplicate
+            if entry['full_url'] == full_url:
                 print('url found in json')
+                # Throw error
+
+            # Shorten & add to json
+            else:
+                short_url = shortenUrl(full_url)
+                print(short_url)
 
     return "Curl"
 
-def randomiseURL(full_url):
+def shortenUrl(full_url):
     return 'ultm.kr/' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
 if __name__ == "__main__":
