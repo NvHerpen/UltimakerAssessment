@@ -1,18 +1,13 @@
 import string
 import random
+from datetime import date
 from flask import Flask, request, escape, json, jsonify
 app = Flask(__name__)
-
-@app.route('/full_url/<path:full_url>')
-def echoPath(full_url):
-    short_url = randomiseURL(full_url)
-    print(full_url + " ::::: " + short_url)
-    return 'Short Url = %s' % escape(short_url)
 
 @app.route("/", methods=["POST"])
 def curlPost():
     if request.method == "POST":
-        full_url = request.get_json(force=True)['full_url']
+        data = request.get_json(force=True)
 
         # Open file for reading
         with open('json.json', 'r') as f:
@@ -21,14 +16,18 @@ def curlPost():
         for entry in dict:
 
             # Check for duplicate
-            if entry['full_url'] == full_url:
-                print('url found in json')
+            if entry['full_url'] == data['full_url']:
                 # Throw error
+                return "Found in json, terminating"
 
-            # Shorten & add to json
-            else:
-                short_url = shortenUrl(full_url)
-                print(short_url)
+        # Shorten & add fields to dictionary
+        data['short_url'] = shortenUrl(data['full_url'])
+        data['created'] = date.today()
+        data['nShortened'] = 1
+
+        # Merge data to dict
+        dict.append(data)
+        print(dict)
 
     return "Curl"
 
@@ -43,6 +42,7 @@ if __name__ == "__main__":
 # Open json                                                                             V
 # Import json to dict                                                                   V
 # Search dict for POST url                                                              V
+# Write new entry to json
 
 # Make function (2) that converts full url to small url by randomising                  V
 # Extend by checking existence in json & echo outcome
