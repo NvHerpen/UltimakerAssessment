@@ -89,17 +89,3 @@ def updateJSON(dict):
 
 if __name__ == "__main__":
     app.run()
-
-# Make function (1) that accepts (after localhost:5000/) a url string and echos it      V
-# Extend by accepting a JSON POST request and store in local variable                   V
-# Open json                                                                             V
-# Import json to dict                                                                   V
-# Search dict for POST url                                                              V
-# Write new entry to json                                                               V
-# Return JSON response                                                                  V
-# Incement entry when requested                                                         V
-
-# Make function (2) that converts full url to small url by randomising                  V
-# Extend by checking existence in json & echo outcome                                   V
-
-# Make function that accepts short url (short when length<10)
