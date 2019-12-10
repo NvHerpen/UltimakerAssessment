@@ -9,6 +9,10 @@ def echoPath(full_url):
     print(full_url + " ::::: " + short_url)
     return 'Short Url = %s' % escape(short_url)
 
+@app.route("/", methods=["POST"])
+def curlPost():
+    return "Curl"
+
 def randomiseURL(full_url):
     return 'ultm.kr/' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
