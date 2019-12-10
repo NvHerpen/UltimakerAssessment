@@ -19,7 +19,8 @@ def curlPost():
             dict = json.load(f)
 
         for entry in dict:
-            print(entry['full_url'])
+            if entry['full_url'] == data['full_url']:
+                print('url found in json')
 
     return "Curl"
 
@@ -33,9 +34,7 @@ if __name__ == "__main__":
 # Extend by accepting a JSON POST request and store in local variable                   V
 # Open json                                                                             V
 # Import json to dict                                                                   V
-# Search dict for POST url
-# Extend that by getting json full_url list
-# Extend that by searching in list and echo outcome (exists or not)
+# Search dict for POST url                                                              V
 
 # Make function (2) that converts full url to small url by randomising                  V
 # Extend by checking existence in json & echo outcome
