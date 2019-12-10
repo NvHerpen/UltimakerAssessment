@@ -1,16 +1,14 @@
 [
     {
-        "full_url": "google.com",
-        "short_url": "test"
-    },
-    {
-        "full_url": "nu.nl",
-        "short_url": "fdsafdswa"
+        "created": "Tue, 10 Dec 2019 00:00:00 GMT",
+        "full_url": "https://www.google.com",
+        "nUsed": 3,
+        "short_url": "ultm.kr/ATWLZ6"
     },
     {
         "created": "Tue, 10 Dec 2019 00:00:00 GMT",
-        "full_url": "google.cfdsam",
-        "nShortened": 1,
-        "short_url": "ultm.kr/QWFTZB"
+        "full_url": "https://www.falseurlforrealsman.dd",
+        "nUsed": 2,
+        "short_url": "ultm.kr/RFKWE9"
     }
 ]
