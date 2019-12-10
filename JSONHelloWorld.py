@@ -1,6 +1,6 @@
 import string
 import random
-from flask import Flask, request, escape
+from flask import Flask, request, escape, json
 app = Flask(__name__)
 
 @app.route('/full_url/<path:full_url>')
@@ -13,7 +13,14 @@ def echoPath(full_url):
 def curlPost():
     if request.method == "POST":
         data = request.get_json(force=True)
-        print("Data received: {data}".format(data=data))
+
+        # Open file for reading
+        with open('json.json', 'r') as f:
+            dict = json.load(f)
+
+        for entry in dict:
+            print(entry['full_url'])
+
     return "Curl"
 
 def randomiseURL(full_url):
@@ -23,7 +30,10 @@ if __name__ == "__main__":
     app.run()
 
 # Make function (1) that accepts (after localhost:5000/) a url string and echos it      V
-# Extend that function by opening a json file
+# Extend by accepting a JSON POST request and store in local variable                   V
+# Open json                                                                             V
+# Import json to dict                                                                   V
+# Search dict for POST url
 # Extend that by getting json full_url list
 # Extend that by searching in list and echo outcome (exists or not)
 

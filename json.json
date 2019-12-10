@@ -1,3 +1,8 @@
-{
-"text": "Hello World!"
-}
+[
+  {
+    "full_url": "google.com"
+  },
+  {
+    "full_url": "nu.nl"
+  }
+]
