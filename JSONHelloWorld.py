@@ -11,6 +11,9 @@ def echoPath(full_url):
 
 @app.route("/", methods=["POST"])
 def curlPost():
+    if request.method == "POST":
+        data = request.get_json(force=True)
+        print("Data received: {data}".format(data=data))
     return "Curl"
 
 def randomiseURL(full_url):
