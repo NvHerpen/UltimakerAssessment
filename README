@@ -1,0 +1,16 @@
+Installation guide:
+Download the repo at https://github.com/NvHerpen/UltimakerAssessment.git
+Inside, there's a virtual environment containing the prerequisite libraries.
+In terminal, navigate to the repository.
+Activate the virtual environment with: source venv/bin/activate
+Execute: python3 urlShortener.py
+
+Usage:
+To perform a POST operation, in a new terminal, type: curl -d '{"full_url":"ultimaker.com"}' 127.0.0.1:5000/
+Unless the http server is located elsewhere than 127.0.0.1:5000
+Copy the short_url
+
+Open a webbrowser and go to 127.0.0.1:5000/ultm.kr/<copied short_url>
+without the <>, and press enter.
+
+Go to 127.0.0.1:5000/ultm.kr/<copied short_url>/stats
