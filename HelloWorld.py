@@ -3,10 +3,6 @@ app = Flask(__name__)
 
 users = [{"name": "sjaak"},{"name": "koos"}]
 
-@app.route("/")
-def hello():
-    return "Hello World!"
-
 @app.route("/user/<user_in>")
 def getUser(user_in):
     for user in users:
